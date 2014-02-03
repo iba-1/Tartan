@@ -9,7 +9,7 @@ Add Mandrill Api key to your config file. Usually `app/config/application.php`
 'mandrill_api_key' => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ```
 
-Add the Tartan folder into your `app/libraries` or `app\vendor` directory.
+Add the Tartan folder into your `app/libraries` or `app/vendor` directory.
 
 Register Tartan namespace in your application bootstrap. Usually `public/index.php`
 
@@ -25,20 +25,20 @@ Register Tartan namespace in your application bootstrap. Usually `public/index.p
     $loader->register();
 ```
 
-And add Mandrill to app DI
+And add Mandrill to your app DI
 
 ```php
     $config = include __DIR__ . '/config/application.php';
     /**
      * Mail service uses AmazonSES
      */
-    $di->set('mandrill', function() {
+    $di->set('mandrill', function() use ($config) {
         return new Tartan\Mandrill($config->mandrill_api_key);
     });
 ```
 
 
-# Usage in controller
+# Usage (in controller)
 ```php
 
     //In some controller, far far away
@@ -59,7 +59,7 @@ And add Mandrill to app DI
 
 ```
 
-#Independent usage
+#Usage (anywhere)
 ```php
     //In anywhere, far far away
     $di = \Phalcon\DI::getDefault();

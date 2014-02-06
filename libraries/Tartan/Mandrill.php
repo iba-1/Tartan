@@ -10,9 +10,10 @@ namespace Tartan;
  * @author  Aboozar Ghafari <me@tartan.pro>
  * @link    http://git.tartan.pro
  */
-use Tartan\Mandrill\Exception;
+use Tartan\Mandrill\Exception,
+    Phalcon\Mvc\User\Component;
 
-class Mandrill
+class Mandrill extends Component
 {
     const API_VERSION = '1.0';
     const END_POINT   = 'https://mandrillapp.com/api/';
